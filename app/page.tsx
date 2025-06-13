@@ -1,102 +1,170 @@
+"use client";
+
+import type React from "react";
+
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Card } from "@/components/ui/card";
+import {
+  Wrench,
+  ListChecks,
+  UserCheck,
+  Handshake,
+  Hammer,
+  Plug,
+  Sprout,
+  ShieldCheck,
+  CreditCard,
+  CalendarDays,
+  Facebook,
+  Instagram,
+  Mail,
+  Briefcase,
+  Search,
+  Rocket,
+  Palette,
+  PenToolIcon as Tool,
+  TreePine,
+  MoreHorizontal,
+} from "lucide-react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Waitlist from "@/components/Waitlist";
+import Services from "@/components/Services";
+import ValueProp from "@/components/ValueProp";
+import Intro from "@/components/Intro";
 
-export default function Home() {
+// Helper component for section titles
+
+export default function LandingPage() {
+  const scrollToWaitlist = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document
+      .getElementById("waitlist-form")
+      ?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex flex-col min-h-dvh bg-white text-slate-700">
+      {/* Header */}
+      <Header />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main className="flex-1">
+        {/* Hero Section */}
+        <Hero />
+
+        {/* How It Works Section */}
+        <Intro />
+
+        {/* Value Propositions Section */}
+        <ValueProp />
+
+        {/* Services Offered Section */}
+        <Services />
+
+        {/* Waitlist Form Section */}
+        <Waitlist />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-slate-300">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div className="md:col-span-2">
+              <Link
+                href="#"
+                className="flex items-center gap-2 mb-4"
+                prefetch={false}
+              >
+                <Wrench className="h-8 w-8 text-sky-500" />
+                <span className="text-2xl font-bold text-white">Handi</span>
+              </Link>
+              <p className="text-slate-400 max-w-md">
+                Handi is dedicated to connecting Malawians with reliable,
+                skilled handymen for all home service needs. Building trust and
+                empowering local professionals.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Quick Links
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="#services"
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#how-it-works"
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    How It Works
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#waitlist-form"
+                    onClick={scrollToWaitlist}
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    Join Waitlist
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-sky-400" />
+                  <a
+                    href="mailto:support@Handimalawi.com"
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    support@Handimalawi.com
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Facebook className="w-5 h-5 text-sky-400" />
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    Facebook
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Instagram className="w-5 h-5 text-sky-400" />
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-sky-400 transition-colors"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-12 border-t border-slate-700 pt-8 text-center">
+            <p className="text-sm text-slate-500">
+              &copy; {new Date().getFullYear()} Handi Malawi. All rights
+              reserved. The easiest way to get things done.
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );
