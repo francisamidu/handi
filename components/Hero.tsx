@@ -3,9 +3,13 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-const Hero = ({ scrollToWaitlist }: { scrollToWaitlist: (e: React.MouseEvent<HTMLAnchorElement>) => void }) => {
+const Hero = ({
+  scrollToWaitlist,
+}: {
+  scrollToWaitlist: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+}) => {
   return (
-    <section className="relative bg-gradient-to-b from-sky-50 via-sky-50/50 to-white pt-20 pb-12 md:pt-32 md:pb-20">
+    <section className="relative bg-gradient-to-b pt-20 pb-12 md:pt-32 md:pb-20">
       <div className="absolute inset-x-0 top-0 h-64 overflow-hidden -z-10">
         {/* Simplified wave pattern */}
         <div className="absolute -top-32 left-1/2 w-[200%] h-96 -translate-x-1/2 rounded-b-full bg-sky-100/70 opacity-50"></div>
