@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import SectionTitle from "./SectionTitle";
 import {
   Briefcase,
@@ -9,96 +10,115 @@ import {
   UserCheck,
 } from "lucide-react";
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.2 + i * 0.15,
+      duration: 0.7,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const Intro = () => {
   return (
-    <section id="how-it-works" className="py-16 md:py-24 bg-slate-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle
-          title="How It Works"
-          subtitle="A simple, straightforward process for everyone."
-        />
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-800 mb-8 text-center md:text-left">
-              For Customers
-            </h3>
-            <div className="space-y-8">
-              {[
-                {
-                  icon: <ListChecks className="w-8 h-8 text-sky-600" />,
-                  title: "Post a Job",
-                  description:
-                    "Tell us what you need. It's free and takes minutes.",
-                },
-                {
-                  icon: <UserCheck className="w-8 h-8 text-sky-600" />,
-                  title: "Get Matched",
-                  description: "We connect you with skilled, vetted handymen.",
-                },
-                {
-                  icon: <Handshake className="w-8 h-8 text-sky-600" />,
-                  title: "Get It Done",
-                  description:
-                    "Hire your choice and pay securely through the app.",
-                },
-              ].map((step, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-6 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-sky-100 flex items-center justify-center text-2xl font-bold text-sky-600">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-slate-800 mb-1">
-                      {step.title}
-                    </h4>
-                    <p className="text-slate-600">{step.description}</p>
-                  </div>
-                </div>
-              ))}
+    <section className="py-20 bg-[#f6faff]">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
+        {/* Badge */}
+        <span className="px-4 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-5">
+          How it Works
+        </span>
+        {/* Heading */}
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 text-center">
+          Getting started is <span className="text-sky-500">easy</span>
+        </h2>
+        {/* Subtitle */}
+        <p className="text-slate-500 mb-12 text-center max-w-2xl mx-auto">
+          Ready to connect with top talent or discover the perfect match for
+          your project? The possibilities are limitless, and the first step is
+          just a click away.
+        </p>
+        {/* Steps */}
+        <div className="flex flex-col md:flex-row gap-8 w-full justify-center">
+          {/* Step 1 */}
+          <motion.div
+            className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
+            custom={0}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+          >
+            {/* Icon */}
+            <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <ListChecks className="w-7 h-7 text-blue-500" />
             </div>
-          </div>
-          <div>
-            <h3 className="text-2xl font-semibold text-slate-800 mb-8 text-center md:text-left">
-              For Handymen
-            </h3>
-            <div className="space-y-8">
-              {[
-                {
-                  icon: <Briefcase className="w-8 h-8 text-green-600" />,
-                  title: "Create Your Profile",
-                  description: "Showcase your skills and set your own rates.",
-                },
-                {
-                  icon: <Search className="w-8 h-8 text-green-600" />,
-                  title: "Get Job Alerts",
-                  description: "Receive notifications for jobs near you.",
-                },
-                {
-                  icon: <CreditCard className="w-8 h-8 text-green-600" />,
-                  title: "Get Paid",
-                  description:
-                    "Complete the work and get paid quickly and securely.",
-                },
-              ].map((step, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-6 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <div className="flex-shrink-0 w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-2xl font-bold text-green-600">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-slate-800 mb-1">
-                      {step.title}
-                    </h4>
-                    <p className="text-slate-600">{step.description}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="text-lg font-semibold text-slate-800 mb-2">
+              Post a <span className="text-sky-500">Job</span>
             </div>
-          </div>
+            <div className="text-slate-500 text-center mb-10">
+              Tell us what you need done. It's free and only takes a minute.
+            </div>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <span className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-500 font-bold text-base">
+                1
+              </span>
+            </div>
+          </motion.div>
+          {/* Step 2 */}
+          <motion.div
+            className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
+            custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+          >
+            {/* Icon */}
+            <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <UserCheck className="w-7 h-7 text-blue-500" />
+            </div>
+            <div className="text-lg font-semibold text-slate-800 mb-2">
+              Get <span className="text-sky-500">Matched</span>
+            </div>
+            <div className="text-slate-500 text-center mb-10">
+              Review profiles, compare quotes, and choose your preferred
+              handyman.
+            </div>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <span className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-500 font-bold text-base">
+                2
+              </span>
+            </div>
+          </motion.div>
+          {/* Step 3 */}
+          <motion.div
+            className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
+            custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
+          >
+            {/* Icon */}
+            <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center mb-6">
+              <Handshake className="w-7 h-7 text-blue-500" />
+            </div>
+            <div className="text-lg font-semibold text-slate-800 mb-2">
+              Get It <span className="text-sky-500">Done</span>
+            </div>
+            <div className="text-slate-500 text-center mb-10">
+              Relax while your handyman completes the job to your satisfaction.
+            </div>
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <span className="w-7 h-7 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-500 font-bold text-base">
+                3
+              </span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
