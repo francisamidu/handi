@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Manrope } from "next/font/google";
+import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
+const geist = Geist({
   subsets: ["latin"],
 });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakartaSans.className} `}>{children}</body>
+      <body className={`${geist.className} `}>{children}</body>
     </html>
   );
 }

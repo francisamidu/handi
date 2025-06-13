@@ -20,7 +20,19 @@ export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-dvh text-slate-700">
       {/* Header */}
-      <section className="bg-white/50">
+      <section
+        className="bg-white/50"
+        style={{
+          backgroundImage: `
+          linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+          linear-gradient(to bottom, #e5e7eb 1px, transparent 1px),
+          repeating-linear-gradient(0deg, transparent, transparent 5px, #f1f5f9 5px, transparent 300px),
+          repeating-linear-gradient(90deg, transparent, transparent 5px, #f1f5f9 5px, transparent 300px)
+        `,
+          backgroundSize: "56px 56px, 56px 56px, 300px 300px, 300px 300px",
+          backgroundColor: "#fff",
+        }}
+      >
         <Header />
         {/* Hero Section */}
         <Hero scrollToWaitlist={scrollToWaitlist} />
