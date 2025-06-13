@@ -8,11 +8,17 @@ const SectionTitle = ({
   className?: string;
 }) => (
   <div className={`mb-12 text-center ${className}`}>
-    <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl lg:text-5xl">
+    <h2
+      className={`text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl lg:text-5xl ${className}`}
+    >
       {title}
     </h2>
     {subtitle && (
-      <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+      <p
+        className={`mt-4 text-lg ${
+          className && "text-white/80"
+        } text-slate-600 max-w-2xl mx-auto`}
+      >
         {subtitle}
       </p>
     )}
