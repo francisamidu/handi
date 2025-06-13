@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-transparent p-2">
       <div className="mx-auto max-w-screen-xl p-3 flex items-center justify-between !text-sm">
-        <div className="flex items-center justify-between gap-2 border rounded-xl shadow-sm shadow-black/10 backdrop-blur-3xl p-2">
+        <div className="flex items-center justify-between gap-2 border rounded-xl shadow-sm shadow-black/10 bg-white backdrop-blur-3xl p-2">
           <Link href="#" className="flex items-center mr-2" prefetch={false}>
             <Wrench className="h-6 w-6 text-sky-600 mr-2" />
             <span className="text-2xl font-bold text-slate-800">Handi</span>
@@ -41,7 +41,7 @@ const Header = () => {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center gap-2 border rounded-xl shadow-sm shadow-black/10 backdrop-blur-3xl p-1">
+        <div className="flex items-center gap-2 border rounded-xl shadow-sm shadow-black/10 bg-white backdrop-blur-3xl p-1">
           <Link
             className="px-4 hover:text-sky-600"
             href="#waitlist-form"

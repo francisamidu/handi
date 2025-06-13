@@ -2,7 +2,48 @@ import React from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail, Play } from "lucide-react";
+import { useEffect, useState } from "react";
+
+function TypewriterWords({
+  words,
+  speed = 240,
+  pause = 1200,
+}: {
+  words: string[];
+  speed?: number;
+  pause?: number;
+}) {
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    if (subIndex === words[index].length + 1 && !deleting) {
+      const timeout = setTimeout(() => setDeleting(true), pause);
+      return () => clearTimeout(timeout);
+    }
+    if (subIndex === 0 && deleting) {
+      setDeleting(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+    const timeout = setTimeout(
+      () => {
+        setSubIndex((prev) => prev + (deleting ? -1 : 1));
+      },
+      deleting ? speed / 2 : speed
+    );
+    return () => clearTimeout(timeout);
+  }, [subIndex, deleting, index, words, speed, pause]);
+
+  return (
+    <span>
+      {words[index].substring(0, subIndex)}
+      <span className="inline-block animate-pulse w-1">|</span>
+    </span>
+  );
+}
 
 const Hero = ({
   scrollToWaitlist,
@@ -10,7 +51,7 @@ const Hero = ({
   scrollToWaitlist: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
   return (
-    <section className="relative bg-transparent pt-20 pb-12 md:pt-32 md:pb-20 flex flex-col items-center overflow-hidden ">
+    <section className="relative bg-transparent pt-20 pb-12 md:pb-20 flex flex-col items-center overflow-hidden ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="g:text-left flex flex-col items-center justify-center text-center">
           <p className="text-sm text-sky-600 font-bold flex items-center bg-sky-200 px-3 py-1 rounded-full">
@@ -18,7 +59,11 @@ const Hero = ({
           </p>
           <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl md:text-6xl my-6">
             The Easiest Way to Hire{" "}
-            <span className="text-sky-600">Trusted Handymen</span> in Malawi.
+            <span className="text-sky-600 block">
+              <TypewriterWords words={["Trusted", "Talented", "Skilled"]} />{" "}
+              Handymen
+            </span>{" "}
+            in Malawi.
           </h1>
           <p className="mt-6 text-lg text-slate-600 sm:text-xl max-w-xl mx-auto lg:mx-0">
             From a leaky tap to a full paint job, find the right person for the
@@ -31,15 +76,15 @@ const Hero = ({
               asChild
             >
               <Link href="#waitlist-form" onClick={scrollToWaitlist}>
-                Join the Waitlist
+                Join the Waitlist <Mail className="ml-2" size={16} />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-sky-600 text-sky-600 hover:bg-sky-50 px-8 py-3 text-lg w-full sm:w-auto"
+              className="border-sky-600 text-sky-600 hover:text-sky-600 hover:bg-sky-50 px-8 py-3 text-lg w-full sm:w-auto"
             >
-              Learn More
+              <Play className="mr-2" size={16} /> Watch Demo
             </Button>
           </div>
         </div>
