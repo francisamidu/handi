@@ -12,106 +12,135 @@ import Image from "next/image";
 
 const ValueProp = () => {
   return (
-    <section id="value-propositions" className="py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* For Customers */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 md:mb-24">
-          <div className="relative order-last lg:order-first">
-            <Image
-              src="/placeholder.svg?width=500&height=400"
-              width={500}
-              height={400}
-              alt="Customer satisfaction"
-              className="rounded-xl shadow-xl mx-auto"
-            />
-          </div>
-          <div>
-            <span className="inline-block px-3 py-1 text-sm font-semibold text-sky-700 bg-sky-100 rounded-full mb-3">
-              For Customers
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl mb-6">
-              Your To-Do List, <span className="text-sky-600">Done.</span>
-            </h2>
-            <ul className="space-y-6">
-              {[
-                {
-                  icon: <ShieldCheck className="w-7 h-7 text-sky-600" />,
-                  title: "Vetted & Reviewed",
-                  description:
-                    "Access a network of trusted professionals with verified reviews.",
-                },
-                {
-                  icon: <Rocket className="w-7 h-7 text-sky-600" />,
-                  title: "Simple Booking",
-                  description: "Find and book help in just a few clicks.",
-                },
-                {
-                  icon: <CreditCard className="w-7 h-7 text-sky-600" />,
-                  title: "Secure Payments",
-                  description:
-                    "Pay easily and securely with Airtel Money or TNM Mpamba. Your money is held until the job is complete.",
-                },
-              ].map((prop) => (
-                <li key={prop.title} className="flex items-start gap-4">
-                  <div className="flex-shrink-0 p-2 bg-sky-100 rounded-full">
-                    {prop.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-800">
-                      {prop.title}
-                    </h4>
-                    <p className="text-slate-600">{prop.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <section id="value-propositions" className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Badge, Heading, Subtitle */}
+        <div className="flex flex-col items-center mb-12">
+          <span className="px-4 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-4">
+            Why Choose Handi?
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-2">
+            Connecting You with{" "}
+            <span className="text-sky-500">Trusted Local Pros</span>
+          </h2>
+          <p className="text-slate-500 text-center max-w-2xl mx-auto mb-10">
+            Handi makes it easy to find, hire, and pay skilled handymen for any
+            home project—quickly, safely, and with total peace of mind.
+          </p>
         </div>
-
-        {/* For Handymen */}
-        <div>
-          <div className="text-center mb-12">
-            <span className="inline-block px-3 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full mb-3">
-              For Handymen
-            </span>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
-              Grow Your Business,{" "}
-              <span className="text-green-600">Your Way.</span>
-            </h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <Briefcase className="w-10 h-10 text-green-600" />,
-                title: "Find More Work",
-                description:
-                  "Get a steady stream of job requests without marketing costs.",
-              },
-              {
-                icon: <CalendarDays className="w-10 h-10 text-green-600" />,
-                title: "Manage Your Schedule",
-                description: "Work when you want, where you want.",
-              },
-              {
-                icon: <Handshake className="w-10 h-10 text-green-600" />,
-                title: "Guaranteed Payments",
-                description:
-                  "No more chasing payments. We ensure you get paid on time.",
-              },
-            ].map((prop) => (
-              <Card
-                key={prop.title}
-                className="text-center p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="mb-6 inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100">
-                  {prop.icon}
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Left: Image with floating profile card */}
+          <div className="relative flex justify-center">
+            <Image
+              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=420&h=340&facepad=2"
+              width={450}
+              height={350}
+              alt="Handyman at work"
+              className="rounded-2xl shadow-xl object-cover border border-slate-200"
+              priority
+            />
+            {/* Floating Profile Card */}
+            <div className="absolute left-6 -bottom-8 bg-white rounded-xl shadow-lg px-4 py-3 flex items-center gap-3 min-w-[220px] border border-slate-100">
+              <Image
+                src="https://randomuser.me/api/portraits/men/75.jpg"
+                width={44}
+                height={44}
+                alt="Cameron Williamson"
+                className="rounded-full border-2 border-white shadow"
+              />
+              <div>
+                <div className="text-xs text-slate-500 font-medium mb-1 flex items-center gap-1">
+                  <span className="inline-block px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-[10px] mr-1">
+                    Top Rated Pro
+                  </span>
+                  <span className="text-yellow-400">★★★★★</span>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                  {prop.title}
-                </h3>
-                <p className="text-slate-600">{prop.description}</p>
-              </Card>
-            ))}
+                <div className="font-semibold text-sm text-slate-800 leading-tight">
+                  Cameron Williamson
+                </div>
+                <div className="text-xs text-slate-500">
+                  Handyman & Home Repairs
+                </div>
+                <div className="flex gap-1 mt-1">
+                  <span className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded font-medium">
+                    Plumbing
+                  </span>
+                  <span className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded font-medium">
+                    Electrical
+                  </span>
+                  <span className="bg-blue-50 text-blue-700 text-[10px] px-1.5 py-0.5 rounded font-medium">
+                    Carpentry
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Right: Benefits grid + buttons */}
+          <div className="flex flex-col items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 w-full mb-8">
+              {/* Card 1 */}
+              <div className="bg-white border border-slate-100 rounded-xl p-5 flex flex-col gap-2 shadow-sm">
+                <span className="w-8 h-8 rounded-lg bg-pink-100 flex items-center justify-center mb-2">
+                  <ShieldCheck className="w-5 h-5 text-pink-500" />
+                </span>
+                <div className="font-semibold text-slate-800 text-base">
+                  Trusted & <span className="text-sky-500">Vetted Pros</span>
+                </div>
+                <div className="text-xs text-slate-500">
+                  Only reliable, background-checked handymen and women—so you
+                  always get quality service.
+                </div>
+              </div>
+              {/* Card 2 */}
+              <div className="bg-white border border-slate-100 rounded-xl p-5 flex flex-col gap-2 shadow-sm">
+                <span className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center mb-2">
+                  <Rocket className="w-5 h-5 text-blue-500" />
+                </span>
+                <div className="font-semibold text-slate-800 text-base">
+                  Simple <span className="text-sky-500">Booking</span>
+                </div>
+                <div className="text-xs text-slate-500">
+                  Post your job, get matched fast, and chat directly with your
+                  pro.
+                </div>
+              </div>
+              {/* Card 3 */}
+              <div className="bg-white border border-slate-100 rounded-xl p-5 flex flex-col gap-2 shadow-sm">
+                <span className="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center mb-2">
+                  <CreditCard className="w-5 h-5 text-green-500" />
+                </span>
+                <div className="font-semibold text-slate-800 text-base">
+                  Secure, <span className="text-sky-500">Easy Payments</span>
+                </div>
+                <div className="text-xs text-slate-500">
+                  Pay safely online or with mobile money. Your payment is held
+                  until the job is done.
+                </div>
+              </div>
+              {/* Card 4 */}
+              <div className="bg-white border border-slate-100 rounded-xl p-5 flex flex-col gap-2 shadow-sm">
+                <span className="w-8 h-8 rounded-lg bg-yellow-100 flex items-center justify-center mb-2">
+                  <Briefcase className="w-5 h-5 text-yellow-500" />
+                </span>
+                <div className="font-semibold text-slate-800 text-base">
+                  Grow <span className="text-sky-500">Your Business</span>
+                </div>
+                <div className="text-xs text-slate-500">
+                  For handymen: find more work, manage your schedule, and get
+                  paid on time—every time.
+                </div>
+              </div>
+            </div>
+            {/* Buttons */}
+            <div className="flex gap-3 mt-2">
+              <button className="px-6 py-2 rounded-lg bg-sky-500 text-white font-semibold text-sm shadow hover:bg-sky-600 transition">
+                Find a Handyman
+              </button>
+              <button className="px-6 py-2 rounded-lg border border-sky-500 text-sky-500 font-semibold text-sm bg-white hover:bg-sky-50 transition">
+                Join as a Pro
+              </button>
+            </div>
           </div>
         </div>
       </div>
