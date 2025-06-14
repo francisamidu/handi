@@ -51,7 +51,10 @@ const Hero = ({
   scrollToWaitlist: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
   return (
-    <section className="relative bg-transparent pt-20 pb-12 md:pb-20 flex flex-col items-center overflow-hidden ">
+    <section
+      id="hero"
+      className="relative bg-transparent pt-20 pb-12 md:pb-20 flex flex-col items-center overflow-hidden "
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="g:text-left flex flex-col items-center justify-center text-center">
           <p className="text-sm text-sky-600 font-bold flex items-center bg-sky-200 px-3 py-1 rounded-full">

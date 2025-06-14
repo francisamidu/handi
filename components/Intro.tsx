@@ -25,7 +25,7 @@ const cardVariants = {
 
 const Intro = () => {
   return (
-    <section className="py-20 bg-[#f6faff]">
+    <section id="how-it-works" className="py-20 bg-[#f6faff]">
       <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
         {/* Badge */}
         <span className="px-4 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-5">
