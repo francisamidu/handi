@@ -1,10 +1,11 @@
 import { Label } from "@radix-ui/react-label";
 import { RadioGroup, RadioGroupItem } from "@radix-ui/react-radio-group";
 import React from "react";
-import SectionTitle from "./SectionTitle";
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { Input } from "./ui/input";
+import Image from "next/image";
+import { CheckCircle, Hammer, ShieldCheck } from "lucide-react";
 
 const waitlistAvatars = [
   "https://randomuser.me/api/portraits/men/75.jpg",
@@ -13,8 +14,6 @@ const waitlistAvatars = [
   "https://randomuser.me/api/portraits/women/44.jpg",
   "https://randomuser.me/api/portraits/men/12.jpg",
 ];
-
-import { CheckCircle, Hammer, ShieldCheck, Users } from "lucide-react";
 
 const Waitlist = () => {
   return (
@@ -93,8 +92,10 @@ const Waitlist = () => {
                     (i === 0 ? "ml-0" : "-ml-3")
                   }
                 >
-                  <img
+                  <Image
                     src={src}
+                    width={50}
+                    height={50}
                     alt="Handyman avatar"
                     className="w-full h-full object-cover"
                   />

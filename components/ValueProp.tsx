@@ -1,13 +1,5 @@
-import {
-  ShieldCheck,
-  Rocket,
-  CreditCard,
-  Briefcase,
-  CalendarDays,
-  Handshake,
-} from "lucide-react";
+import { ShieldCheck, Rocket, CreditCard, Briefcase } from "lucide-react";
 import React from "react";
-import { Card } from "./ui/card";
 import Image from "next/image";
 
 const ValueProp = () => {

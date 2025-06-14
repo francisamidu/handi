@@ -1,16 +1,8 @@
 import React from "react";
-import { motion } from "motion/react";
-import SectionTitle from "./SectionTitle";
-import {
-  Briefcase,
-  CreditCard,
-  Handshake,
-  ListChecks,
-  Search,
-  UserCheck,
-} from "lucide-react";
+import { motion, Variants } from "motion/react";
+import { Handshake, ListChecks, UserCheck } from "lucide-react";
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 32 },
   visible: (i: number) => ({
     opacity: 1,
@@ -48,7 +40,7 @@ const Intro = () => {
             className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
             custom={0}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
           >
@@ -73,7 +65,7 @@ const Intro = () => {
             className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
             custom={1}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
           >
@@ -99,7 +91,7 @@ const Intro = () => {
             className="flex-1 bg-white rounded-2xl shadow-lg border border-blue-100 flex flex-col items-center px-6 py-8 min-w-[260px] max-w-sm mx-auto relative"
             custom={2}
             initial="hidden"
-            whileInView="visible"
+            animate="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={cardVariants}
           >
